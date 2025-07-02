@@ -12,12 +12,8 @@ from string import ascii_lowercase as alc
 #!/usr/bin/env python3
 '''
 TODO:
-- find example to fit from ring 
--- one for when it works natively
 -- one for when it needs xy-rotation
-- find example to fit from monomer (maybe slinky?)
 - figure out how to install conda from this file
-- push to github
  '''
 
 # define a function to convert string to boolean
@@ -45,7 +41,7 @@ def func(c):
     Ri = calc_R(*c)
     return Ri - Ri.mean()
 
-def build_circle(topdir, no_subunits, in_structure, z_rotation, xy_rotation, in_radius, delete_intermediates):
+def build_circle(topdir, no_subunits, in_structure, z_rotation, xy_rotation, tilt, in_radius, delete_intermediates):
     """
     Main function to build symmetric rings of circular protein assemblies.
 
@@ -119,6 +115,11 @@ def build_circle(topdir, no_subunits, in_structure, z_rotation, xy_rotation, in_
         second_axis = np.concatenate((second_axis, np.zeros(1)))
         mono_a = rotate.rotateby(angle=xy_rotation, direction=second_axis, ag=mono_a)(mono_a)
 
+        # Tilt the subunit in and out of the plane of the ring (this is perpendicular to the second axis)
+        tilt_axis = np.array([-second_axis[1], second_axis[0], 0])
+        tilt_axis /= np.linalg.norm(tilt_axis)
+        mono_a = rotate.rotateby(angle=tilt, direction=tilt_axis, ag=mono_a)(mono_a)
+
         # write out temporary copy of subunit
         chain_id = next(segid_list)
         mono_a.segments.segids = chain_id
@@ -133,7 +134,7 @@ def build_circle(topdir, no_subunits, in_structure, z_rotation, xy_rotation, in_
             system = mda.Merge(system.select_atoms("all"), mono.select_atoms("all"))
     
     system = system.select_atoms("all")
-    system.write(os.path.join(topdir, f"{no_subunits}mer_rad{round(radius,2)}A_z{z_rotation}deg_xy{xy_rotation}deg.pdb"))
+    system.write(os.path.join(topdir, f"{no_subunits}mer_rad{round(radius,2)}A_z{z_rotation}deg_xy{xy_rotation}deg_tilt{tilt}deg.pdb"))
     if delete_intermediates:
         if os.path.exists(intermediates_dir):
             print("Deleting individual subunit structures.")
@@ -154,6 +155,8 @@ def main():
                         help='Angle (deg) to rotate each subunit of the ring around its z-axis.')
     parser.add_argument('--xy_rotation', type=float, default=0,
                         help='Angle (deg) to rotate each subunit of the ring around its xy-axis.')
+    parser.add_argument('--tilt', type=float, default=0,
+                        help='Angle (deg) to tilt each subunit into the plane of the ring.')
     parser.add_argument('--in_radius', type=float, required=False, default=None,
                         help='Input radius for the ring. Disables fitting the radius to the original structure.')
     parser.add_argument('--delete_intermediates', type=str2bool, default=True,
@@ -161,8 +164,8 @@ def main():
     args = parser.parse_args()
     
     build_circle(args.topdir, args.no_subunits, args.in_structure,
-                 args.z_rotation, args.xy_rotation, args.in_radius,
-                 args.delete_intermediates
+                 args.z_rotation, args.xy_rotation, args.tilt,
+                 args.in_radius, args.delete_intermediates
                 )
     
 if __name__ == "__main__":

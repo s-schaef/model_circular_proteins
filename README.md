@@ -50,14 +50,14 @@ This tool allows building circular structures from monomers. Below are three exa
 2. Let's assume we want to build a tighter ring based off of the same original structure (6VFE). For a 15-meric Gasdermin-D strucuture we now need to specify a radius that is tighter - via trial and error 70Angstrom seems to fit well. 
 
     ```
-    python model_circular_proteins.py --in_structure 6vfe.pdb --no_subunits 15 
+    python model_circular_proteins.py --in_structure examples/6vfe.pdb --no_subunits 15 
     --z_rotation 80 --in_radius 70
     ```
 
 3. Now we want to modify an existing assembly into a circular one. For example a spiral gasdermin structure from Cryo-EM that we want to model as a planar assembly. For this we need to guess (or know from other methods) the number of subunits and radius we want the ring to have. Then we need to find the z and xy-rotations via trial and error. The xy_rotation is crucial here to preserve the hydrogen-bonding network of the $\beta$-sheet. 
 
     ```
-    python model_circular_proteins.py --in_structure 8sl0.pdb --in_radius 175
-     --no_subunits 52 --z_rotation -80 --xy_rotation 78
+    python model_circular_proteins.py --in_structure examples/8sl0.pdb --in_radius 178
+     --no_subunits 52 --z_rotation -80 --xy_rotation 78 --tilt 10
     ```
 
