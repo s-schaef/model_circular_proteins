@@ -15,7 +15,7 @@ This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICE
 - Outputs a complete PDB structure of the resulting circular oligomer (centered on x0, y0)
 
 - Optionally accepts a fixed radius.
-- Optionally rotates monomeric subunits in z or xy.
+- Optionally rotates monomeric subunits in z, xy, or into the circle.
 - Optionally cleans up intermediate files.
 
 ---
