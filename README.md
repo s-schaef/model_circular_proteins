@@ -2,7 +2,11 @@
 
 A command-line tool for generating symmetric protein rings (e.g., gasdermin-like structures) from a monomeric subunit or an approximate input ring structure.
 
----
+
+## License
+
+This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details.
+
 
 ## Features
 
