@@ -54,7 +54,7 @@ This tool allows building circular structures from monomers. Below are three exa
     --z_rotation 80 --in_radius 70
     ```
 
-3. Now we want to modify an existing assembly into a circular one. For example a spiral gasdermin structure from Cryo-EM that we want to model as a planar assembly. For this we need to guess (or know from other methods) the number of subunits and radius we want the ring to have. Then we need to find the z and xy-rotations via trial and error. The xy_rotation is crucial here to preserve the hydrogen-bonding network of the $\beta$-sheet. 
+3. Now we want to take a subunit from an assymmetric assembly and build a circular assembly from it. For example a spiral gasdermin structure from Cryo-EM that we want to model as a planar assembly. For this we need to guess (or know from other methods) the number of subunits and radius we want the ring to have. Then we need to find the z, xy-rotations, and the tilt into the circle via trial and error. The xy_rotation is crucial here to preserve the hydrogen-bonding network of the $\beta$-sheet.
 
     ```
     python model_circular_proteins.py --in_structure examples/8sl0.pdb --in_radius 178
