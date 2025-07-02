@@ -8,7 +8,7 @@ A command-line tool for generating symmetric protein rings (e.g., gasdermin-like
 
 - Automatically fits a ring radius from a low-resolution structure
 - Aligns and arranges monomeric subunits in a circular oligomer
-- Outputs a complete PDB structure of the resulting ring
+- Outputs a complete PDB structure of the resulting circular oligomer (centered on x0, y0)
 
 - Optionally accepts a fixed radius.
 - Optionally rotates monomeric subunits in z or xy.
