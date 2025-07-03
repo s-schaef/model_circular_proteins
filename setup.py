@@ -1,7 +1,3 @@
-# =======================
-# setup.py
-# =======================
-
 from setuptools import setup, find_packages
 
 setup(
@@ -15,7 +11,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'build_circle=model_circular_proteins.cli:main',
+            'build_circle=model_circles.cli:main',
         ],
     },
     author='s-schaef',
