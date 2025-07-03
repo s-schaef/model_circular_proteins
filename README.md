@@ -45,7 +45,7 @@ This tool allows building circular structures from monomers. Below are three exa
      --z_rotation 80
     ```
 
-    This builds a 33-meric circular assebmly of Gasdermin-D that resembles the original 33-meric structure from which the monomer is taken (6VFE)[[2]](#2). The radius is fitted from the original structure. The z_rotation is needed since the original chain A does not sit at 12 o'clock in the ring. Note that this z_rotation is not perfect and the resulting ring will slightly vary from the original. By design of the code it also assembles the ring from copies of chain A, whereas the original structure may vary between its subunits. 
+    This builds a 33-meric circular assebmly of Gasdermin-D that resembles the original 33-meric structure from which the monomer is taken (6VFE)[[1]](#1). The radius is fitted from the original structure. The z_rotation is needed since the original chain A does not sit at 12 o'clock in the ring. Note that this z_rotation is not perfect and the resulting ring will slightly vary from the original. By design of the code it also assembles the ring from copies of chain A, whereas the original structure may vary between its subunits. 
 
 2. Let's assume we want to build a tighter ring based off of the same original structure (6VFE). For a 15-meric Gasdermin-D strucuture we now need to specify a radius that is tighter - via trial and error 70Angstrom seems to fit well. 
 
