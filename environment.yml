@@ -2,12 +2,12 @@
 # environment.yml
 # =======================
 
-name: circular_builder
+name: model_circular_proteins
 dependencies:
   - python=3.10
   - numpy=2.2.5
   - scipy=1.15.3
-  - MDanalysis=2.9.0
+  - MDanalysis=2.9
   - pip
   - pip:
       - .
