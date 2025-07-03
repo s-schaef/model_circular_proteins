@@ -26,7 +26,7 @@ This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICE
 git clone https://github.com/s-schaef/model_circular_proteins.git
 cd model_circular_proteins
 conda env create -f environment.yml
-conda activate model_circular_proteins
+conda activate model_protein_circles
 ```
 
 Use `build_circle --help` to show usage guidelines. 
