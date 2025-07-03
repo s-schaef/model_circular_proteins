@@ -29,7 +29,7 @@ conda env create -f environment.yml
 conda activate model_circular_proteins
 ```
 
-```
+Use `build_circle --help` to show usage guidelines. 
 
 ## Examples
 This tool allows building circular structures from monomers. Below are three examples of how this may be used:
