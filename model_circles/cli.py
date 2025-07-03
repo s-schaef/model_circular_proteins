@@ -10,11 +10,6 @@ from string import ascii_uppercase as auc
 from string import ascii_lowercase as alc
 
 #!/usr/bin/env python3
-'''
-TODO:
-- cite pdbs in readme
-- figure out how to install conda from this file
- '''
 
 # define a function to convert string to boolean
 def str2bool(v):
@@ -137,18 +132,18 @@ def build_circle(topdir, no_subunits, in_structure, z_rotation, xy_rotation, til
     system.write(os.path.join(topdir, f"{no_subunits}mer_rad{round(radius,2)}A_z{z_rotation}deg_xy{xy_rotation}deg_tilt{tilt}deg.pdb"))
     if delete_intermediates:
         if os.path.exists(intermediates_dir):
-            print("Deleting individual subunit structures.")
+            print("Deleting temporary files.")
         shutil.rmtree(intermediates_dir)
 
 
 def main():
     parser = argparse.ArgumentParser(description='Build circular assemblies of proteins')
+    parser.add_argument('--topdir', required=False, default='.',
+                        help='Top directory containing input files. Defaults to current directory.')
     parser.add_argument('--in_structure', required=True, type=str,
                         help='PDB file with high resolution monomers.' \
                         'Expects a crude ring structure from which the radius can be calculated.' \
                         'Alternatatively, a single subunit works with a user decided input radius.') 
-    parser.add_argument('--topdir', required=False, default='.',
-                        help='Top directory containing input files. Defaults to current directory.')
     parser.add_argument('--no_subunits', type=int, required=True,
                         help='Desired number of intermediates in the ring. Must be an integer greater than 0.')
     parser.add_argument('--z_rotation', type=float, default=0,
