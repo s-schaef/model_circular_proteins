@@ -12,7 +12,7 @@ from string import ascii_lowercase as alc
 #!/usr/bin/env python3
 '''
 TODO:
--- one for when it needs xy-rotation
+- cite pdbs in readme
 - figure out how to install conda from this file
  '''
 
