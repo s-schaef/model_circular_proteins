@@ -51,8 +51,7 @@ This tool allows building circular structures from monomers. Below are three exa
 3. Now we want to take a subunit from an assymmetric assembly and build a circular assembly from it. For example a bacterial gasdermin that stems from a spiral structure from Cryo-EM (8SL0)[[2]](#2) that we want to model as a planar assembly. For this we need to guess (or know from other methods) the number of subunits and radius we want the ring to have. Then we need to find the z, xy-rotations, and the tilt into the circle via trial and error. The xy_rotation is crucial here to preserve the hydrogen-bonding network of the $\beta$-sheet.
 
     ```bash
-    build_circle --topdir examples --in_structure 8sl0.pdb --in_radius 178
-    --no_subunits 52 --z_rotation -80 --xy_rotation 78 --tilt 10
+    build_circle --topdir examples --in_structure 8sl0.pdb --in_radius 178 --no_subunits 52 --z_rotation -80 --xy_rotation 78 --tilt 10
     ```
 
 
