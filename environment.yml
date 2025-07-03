@@ -1,0 +1,13 @@
+# =======================
+# environment.yml
+# =======================
+
+name: circular_builder
+dependencies:
+  - python=3.10
+  - numpy=2.2.5
+  - scipy=1.15.3
+  - MDanalysis=2.9.0
+  - pip
+  - pip:
+      - .
