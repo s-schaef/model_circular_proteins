@@ -1,8 +1,4 @@
-# =======================
-# environment.yml
-# =======================
-
-name: model_circular_proteins
+name: model_protein_circles
 channels:
   - conda-forge
   - defaults
