@@ -52,7 +52,7 @@ This tool allows building circular structures from monomers. Below are three exa
 
     ```bash
     build_circle --topdir examples --in_structure 8sl0.pdb --in_radius 178
-     --no_subunits 52 --z_rotation -80 --xy_rotation 78 --tilt 10
+    --no_subunits 52 --z_rotation -80 --xy_rotation 78 --tilt 10
     ```
 
 
